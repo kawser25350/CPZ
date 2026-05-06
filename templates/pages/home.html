@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+ 
+{% include 'components/home_header.html' %}
+
+<main class="blog-main">
+	<div class="container">
+
+		<div class="row mt-3">
+           <h2 class="text-center">CATEGORIES</h2>
+			<div class="col-12 p-3 d-flex flex-wrap gap-2">
+              <a href="{% url 'home' %}" class="category-link category-box {% if not selected_category %}is-active{% endif %}">All</a>
+              {% for c in cat_data %}
+			   <a href="{% url 'home' %}?category={{ c.id }}" class="category-link category-box {% if selected_category == c.id|stringformat:'s' %}is-active{% endif %}">{{c.name}}</a> 
+			  {% endfor %}
+			</div>
+			<hr>
+			<div class="col-12 p-2  d-flex flex-wrap  ">
+
+				{% for post in post_data %}
+				  
+					<div class="w-100 card border-success mb-3 p-2">
+						<div   class="card-header bg-transparent border-success">
+							
+							<h4 style="color:#362C5F !important;"> <i class="fa-solid fa-circle-user"></i> {{post.author.first_name}} {{post.author.last_name}}</h4>
+						</div>
+						<div class="card-body text-dark">
+							<h5 class="card-title">{{post.name}}</h5>
+							<p>Category:{% for c in post.category.all %}
+								{{c.name}}
+								{% endfor %}
+							</p>
+							
+							<!-- Preview: Shows 2 lines with line breaks preserved -->
+							<div class="post-preview" id="postPreview{{ forloop.counter }}">
+								<p class="card-text" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0.5rem;">
+									{{post.content|linebreaksbr}}
+								</p>
+							</div>
+
+							<!-- Full content: Hidden by default, shows on click -->
+							<div class="post-full collapse" id="postContent{{ forloop.counter }}">
+								<p class="card-text">{{post.content|linebreaksbr}}</p>
+							</div>
+
+							<!-- Show More / Show Less Button -->
+							<button class="btn btn-link p-0 post-toggle-btn" type="button" data-bs-toggle="collapse" data-bs-target="#postContent{{ forloop.counter }}" data-preview-id="postPreview{{ forloop.counter }}" aria-expanded="false" aria-controls="postContent{{ forloop.counter }}" style="color: #362C5F;">
+								Show more
+							</button>
+						</div>
+						
+						<div class="d-flex flex-wrap card-footer bg-transparent border-success">
+							<a style="text-decoration: none; color:green;" class="p-2" href="">Upvote</a>
+							<a style="text-decoration: none; color: red;" class="p-2" href="">Downvote</a>
+						</div>
+					</div>
+			   {% empty %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+		<!-- <div class="row g-4 mt-5">
+			
+				<div class="col-12">
+					<p class="text-center" style="color: var(--lavender-text); padding: 2rem;">No posts yet. Check back soon!</p>
+				</div>
+			{% endfor %}
+		</div> -->
+		
+		
+</main>
+
+{% endblock %}

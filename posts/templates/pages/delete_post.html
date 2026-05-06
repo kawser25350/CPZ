@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+Delete Post
+{% endblock %}
+
+{% block content %}
+
+{% include 'components/home_header.html' %}
+
+<div class="container pt-5">
+    <div class="col-6 mx-auto card border-danger mb-3 p-4">
+        <div class="card-body">
+            <h4 class="card-title text-danger">Delete Post?</h4>
+            <p class="card-text">
+                Are you sure you want to delete "<strong>{{ post.name }}</strong>"? 
+                This action cannot be undone.
+            </p>
+            
+            <form method="post" class="d-flex gap-2">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete Permanently</button>
+                <a href="{% url 'author:my_posts' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

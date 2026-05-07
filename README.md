@@ -1,6 +1,6 @@
 # C-P-Z
 
-A Django-based content publishing project featuring user authentication, profile management, and CRUD workflows for posts. The UI is built with Django templates and styled using Bootstrap 5 via `django-crispy-forms`.
+A Django-based content publishing project featuring user authentication, profile management, and CRUD workflows for posts. The UI is built with Django templates and styled using Bootstrap 5 via `dj[...]
 
 ## Features
 
@@ -105,4 +105,4 @@ Open `http://127.0.0.1:8000/`.
 
 ## License
 
-Add a license file if you plan to publish this project publicly.
+This project is licensed under the MIT License. See the `LICENSE` file for details.

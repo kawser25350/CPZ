@@ -1,0 +1,19 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">CPZ logo</title>
+  <desc id="logoDesc">A rounded square logo with CPZ letters and a bright accent mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="18" x2="142" y2="144" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#20143F"/>
+      <stop offset="1" stop-color="#5D3F98"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="42" y1="24" x2="120" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#D9C8FF" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="136" height="136" rx="34" fill="url(#bg)"/>
+  <path d="M38 50C38 42.268 44.268 36 52 36H108C115.732 36 122 42.268 122 50V110C122 117.732 115.732 124 108 124H52C44.268 124 38 117.732 38 110V50Z" fill="url(#accent)" fill-opacity="0.18"/>
+  <circle cx="116" cy="38" r="8" fill="#FFD86B"/>
+  <path d="M56 56V106H70.2C86.2 106 97 96.256 97 81.32C97 66.472 86.2 56 70.2 56H56ZM68.84 67.12H70.2C79.64 67.12 85.08 72.56 85.08 81.32C85.08 90.08 79.64 94.88 70.2 94.88H68.84V67.12Z" fill="#FFFFFF"/>
+  <path d="M101 56V65.52H113.24L96.68 95.52V106H128V96.48H114.92L131.2 66.72V56H101Z" fill="#FFFFFF"/>
+</svg>

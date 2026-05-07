@@ -9,22 +9,25 @@
 {% block content %}
 
 {% include 'components/home_header.html' %}
- 
- <div class="container w-75 border border-dark shodow mt-5 mb-5 rounded-3 p-5 bg-light ">
-   
-    <form  method="post">
-        {% if messages %}
-        {% for m in messages %}
-        <div class="alert alert-{{ m.tags|default:'info' }}" role="alert">{{ m }}</div>
-        {% endfor %}
-        {% endif %}
-    <h1 class="text-center">{{type}} page</h1>
-    {% csrf_token %}
-    {{form | crispy}}
-    <button class="container-fluid btn btn-outline-success mb-5">{{type}}</button>
-    </form>
-    
 
- </div>
+<main class="container py-5">
+    <div class="form-shell form-shell--content mx-auto">
+        <div class="form-shell__hero">
+            <p class="form-shell__eyebrow">Post editor</p>
+            <h1 class="form-shell__title">{{ type }}</h1>
+            <p class="form-shell__subtitle">Share an idea, update a post, or refine a draft with a cleaner writing surface.</p>
+        </div>
+        <form method="post" class="form-shell__form">
+            {% if messages %}
+                {% for m in messages %}
+                    <div class="alert alert-{{ m.tags|default:'info' }}" role="alert">{{ m }}</div>
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            {{form | crispy}}
+            <button class="btn form-submit-btn w-100" type="submit">{{type}}</button>
+        </form>
+    </div>
+</main>
 
 {% endblock %}

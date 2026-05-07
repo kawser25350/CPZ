@@ -11,17 +11,21 @@ Home
 
 
 
-<div class=" container-fluid row p-5">
-    <div class="col-2 border border-dark rounded-3 "> 
+<div class="container-fluid row p-4 p-lg-5 g-4">
+    <div class="col-12 col-lg-3"> 
         {% include 'components/profile_page_side_bar.html' %}
     </div>
-    <div class="col">
+    <div class="col-12 col-lg-9">
 
-            <form class="border border-dark shodow  rounded-3 p-5 bg-light" style="  margin : auto" method="post">
-                <h1 class="text-center">Profile</h1>
+            <form class="form-shell form-shell--profile" method="post">
+                <div class="form-shell__hero">
+                    <p class="form-shell__eyebrow">Profile settings</p>
+                    <h1 class="form-shell__title">Profile</h1>
+                    <p class="form-shell__subtitle">Update your public details and account information.</p>
+                </div>
                 {% csrf_token %}
                 {{form | crispy}}
-            <button class=" container-fluid btn btn-outline-success mb-5">Update Profile</button>
+            <button class="btn form-submit-btn w-100" type="submit">Update Profile</button>
             </form>
      
     </div>

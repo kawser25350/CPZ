@@ -28,14 +28,14 @@ Home
 							
 							<!-- Preview: Shows 2 lines with line breaks preserved -->
 							<div class="post-preview" id="postPreview{{ forloop.counter }}">
-								<p class="card-text" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 0.5rem;">
+								<p class="card-text post-excerpt post-excerpt--preview" style="margin-bottom: 0.5rem;">
 									{{post.content|linebreaksbr}}
 								</p>
 							</div>
 
 							<!-- Full content: Hidden by default, shows on click -->
-							<div class="post-full collapse" id="postContent{{ forloop.counter }}">
-								<p class="card-text">{{post.content|linebreaksbr}}</p>
+							<div class="post-full collapse post-full-content" id="postContent{{ forloop.counter }}">
+								<p class="card-text post-excerpt post-excerpt--full">{{post.content|linebreaksbr}}</p>
 							</div>
 
 							<!-- Show More / Show Less Button -->

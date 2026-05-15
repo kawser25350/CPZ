@@ -103,28 +103,6 @@ Open `http://127.0.0.1:8000/`.
 - This project uses SQLite by default (`db.sqlite3`). For production, configure a production-grade database and update `ALLOWED_HOSTS`, `DEBUG`, and `SECRET_KEY`.
 - Static files are configured with `STATICFILES_DIRS` and `STATIC_ROOT` for `collectstatic`.
 
-## Render Deployment Note
-
-If you deploy on Render, use a managed PostgreSQL database instead of the local SQLite file.
-
-Set these environment variables:
-
-- `DJANGO_SECRET_KEY`
-- `DJANGO_DEBUG=False`
-- `DJANGO_ALLOWED_HOSTS=your-service.onrender.com`
-- `DATABASE_URL` from your PostgreSQL provider
-
-Use this build command so migrations run before the app starts:
-
-```bash
-pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
-```
-
-Start command:
-
-```bash
-gunicorn CPZ.wsgi:application
-```
 
 ## License
 
